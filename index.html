@@ -11,38 +11,134 @@
 <div class="tables">
     <table cellspacing="15">
         <tbody id="tbo">
-
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
         </tbody>
     </table>
+    <input type="button" value="点名" id="butt">
 </div>
-
+<p></p>
 </body>
 </html>
 <script>
 
     $(function () {
         var name = [
-            'None','None','','',
-            'None','None','','',
-            '贾克斯','','','',
-            '','李捷东','邓富铖','',
-            '易大师','','','黄子杰',
+            'None','None','F',' ',
+            'None','None',' ','A',
+            '贾克斯','H',' ','B',
+            ' ','李捷东','邓富铖',' ',
+            '易大师',' ','G','黄子杰',
             '邓国东','杰斯','徐庆烽','菊花信',
-            '','吴靖辉','恕瑞玛','轮子妈',
-            '','','维伽','奥巴马',
-            '','','陈钊文','',
-            '德莱文','','','',
-            '讲台'
+            'D','吴靖辉','恕瑞玛','轮子妈',
+            ' ',' ','维伽','奥巴马',
+            'C',' ','陈钊文',' ',
+            '德莱文',' ','E','I',
+            '--讲台--'
         ];
         for(i=0;i<=10;i++){
-            $('#tbo').append('<tr>1</tr>');
+            for (j=0;j<=3;j++){
+                $('tbody tr:eq('+i+') td:eq('+j+')').append(name[(i*4)+j]);
+            }
+
         }
+        var id;
+        var a;
+        $('#butt').click(function () {
+            bname = this.value;
+            var classname;
 
-        // math.random()
+            if (bname == '点名'){
+                $(this).val('停止');
+                id = setInterval(function () {
+                    $('td').css({
+                        'background-color': 'white',
+                    });
+                    while(true){
+                        a = Math.random()*40;
+                        a = Math.round(a);
+                        tdname = $('td:eq('+a+')').text();
+                        classname = $('td:eq('+a+')').hasClass('on');
+                        if (tdname.trim() == '' ||
+                            tdname.trim() == 'None' ||
+                            tdname.trim() == '--讲台--' || classname==true){
+                            continue;
+                        } else {
+                            break;
+                        }
+                    }
+                    $('td:eq('+a+')').css({
+                        'background-color': 'red',
+                    });
+                },140);
+            }else{
+                $('td:eq('+a+')').addClass("on");
+                $('td:eq('+a+')').css('background-color','blue');
+                $(this).val('点名');
+                clearInterval(id);
 
-        $('td:first').css({
-            'background-color': 'white',
+            }
         });
-
     });
 </script>
