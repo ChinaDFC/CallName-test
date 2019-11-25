@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/js.js"></script>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+<body>
+<div class="tables">
+    <table cellspacing="15">
+        <tbody id="tbo">
+
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
+<script>
+
+    $(function () {
+        var name = [
+            'None','None','','',
+            'None','None','','',
+            '贾克斯','','','',
+            '','李捷东','邓富铖','',
+            '易大师','','','黄子杰',
+            '邓国东','杰斯','徐庆烽','菊花信',
+            '','吴靖辉','恕瑞玛','轮子妈',
+            '','','维伽','奥巴马',
+            '','','陈钊文','',
+            '德莱文','','','',
+            '讲台'
+        ];
+        for(i=0;i<=10;i++){
+            $('#tbo').append('<tr>1</tr>');
+        }
+
+        // math.random()
+
+        $('td:first').css({
+            'background-color': 'white',
+        });
+
+    });
+</script>
